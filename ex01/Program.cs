@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 string name;
 
@@ -42,10 +43,14 @@ static int DistanceLevenshtein(string namecons, string namedict)
     return matrixDistLev[n - 1, m - 1];
 }
 
+Regex formatname = new Regex("[^a-zA-ZА-Яа-яЁё -]");
+
 Console.Write("Enter name: ");
 name = Console.ReadLine();
 if (name == "")
     Console.WriteLine("Your name was not found.");
+else if (formatname.IsMatch(name) == true)
+    Console.WriteLine("Wrong simbols, use only space, - or letters");
 else
 {
     StreamReader file = new StreamReader($"us.txt");
