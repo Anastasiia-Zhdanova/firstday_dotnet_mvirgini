@@ -53,7 +53,7 @@ else if (formatname.IsMatch(name) == true)
     Console.WriteLine("Wrong simbols, use only space, - or letters");
 else
 {
-    StreamReader file = new StreamReader($"us.txt");
+    StreamReader file = new StreamReader("us.txt");
     int nowlevdist;
     string ln;
 
@@ -69,7 +69,7 @@ else
     }
     file.Close();
  
-    file = new StreamReader($"us.txt");
+    file = new StreamReader("us.txt");
     while ((ln = file.ReadLine()) != null)
     {
         nowlevdist = DistanceLevenshtein(name, ln);
